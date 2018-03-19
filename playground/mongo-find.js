@@ -12,17 +12,17 @@ const r = require;
   console.log('Connect to the Mongodb');
  const db = client.db('TodoApp');  
 	//Here toArray return the Promise.  
-	db.collection('Users').find(
-//now here we can add the specific query on basis of this to fecth the object which.
-//satisfy this query.
-   		{
-			age:22
- 		}
- 		).toArray().then((docs) => {
- 			//explore promise.
-   console.log('Todos');
-   console.log(JSON.stringify(docs,undefined,2));    
-   //remmeber this docs file is a array.
+// 	db.collection('Users').find(
+// //now here we can add the specific query on basis of this to fecth the object which.
+// //satisfy this query.
+//    		{
+// 			age:22
+//  		}
+//  		).toArray().then((docs) => {
+//  			//explore promise.
+//    console.log('Todos');
+//    console.log(JSON.stringify(docs,undefined,2));    
+//    //remmeber this docs file is a array.
    //find the text which object has complted false;
    // docs.forEach((obj,i) => {
    // if(obj.completed === false){
@@ -31,6 +31,10 @@ const r = require;
    //    console.log("index: Don't",i);
    // }
    // });
+
+
+   //now we are going  to delete the data from the mongodb.
+   
   	},(err)=>{
   		console.log('Unable to fetch todos',err);
   	});
