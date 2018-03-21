@@ -6,9 +6,13 @@ const r = require;
 
 // this is ES6 object Destructuring.
  var {MongoClient,ObjectId} =  r('mongodb');
- var obj =  new ObjectId();
- console.log(obj);
-//object destructuring
+ const assert = r('assert');
+
+ //this generate a random unique Id.
+ // var obj =  new ObjectId();
+ // console.log(obj);
+
+
 // MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,client) => {
 //   if(err){
 //   	console.log('We Are Unable to connect the dataBase');
@@ -64,3 +68,27 @@ const r = require;
 // 	}
 // 	client.close();
 // });
+// Connection URL
+const url = 'mongodb://localhost:27017';
+// Database Name
+const dbName = 'Admin';
+// Use connect method to connect to the server
+MongoClient.connect(url, (err, client) => {
+  if(err)
+    return;
+  console.log("Server Connected");
+  const db = client.db(dbName);
+  db.collection('details').insertOne({
+                name:'Subhajit Manna',
+                age:22,
+                relationshipStatus:'single'
+            },(error,result) => {
+     if(error){
+       console.log('unable to insert',JSON.stringify(error,undefined,2));
+     } else{
+       console.log(result.ops);
+     }
+   });
+  console.log('Done');
+  client.close();
+});

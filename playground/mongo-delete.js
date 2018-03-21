@@ -45,8 +45,6 @@ const r = require;
         console.log('delete is not successful');
      });
 
-
-
     //db.close();
 
 //  // client.close();

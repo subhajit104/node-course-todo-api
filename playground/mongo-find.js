@@ -4,7 +4,7 @@ const r = require;
  var {MongoClient,ObjectId} =  r('mongodb');
  // var obj =  new ObjectId();
  // console.log(obj);
- MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,client) => {
+ MongoClient.connect('mongodb://localhost:27017',(err,client) => {
  if(err){
  	console.log('We Are Unable to connect the dataBase');
  	return;
@@ -31,12 +31,9 @@ const r = require;
    //    console.log("index: Don't",i);
    // }
    // });
-
-
-   //now we are going  to delete the data from the mongodb.
    
-  	},(err)=>{
-  		console.log('Unable to fetch todos',err);
-  	});
+  	// },(err)=>{
+  	// 	console.log('Unable to fetch todos',err);
+  	// });
 //  // client.close();
 });
